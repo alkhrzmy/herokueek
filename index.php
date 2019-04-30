@@ -130,7 +130,6 @@ if($type=='join'){
           array (
             'type' => 'postback',
             'label' => 'Help',
-            'text' => 'Help',
             'data' => 'Help',
           ),
           'flex' => 1,
@@ -161,7 +160,7 @@ if($type == 'follow') {
         'messages'=>array(
                 array (
   'type' => 'flex',
-  'altText' => 'Flex Message',
+  'altText' => 'Trims!',
   'contents' => 
   array (
     'type' => 'bubble',
@@ -192,13 +191,13 @@ if($type == 'follow') {
         1 => 
         array (
           'type' => 'text',
-          'text' => 'Telah menambahkan sebagai teman',
+          'text' => 'Telah menambahkan aku sebagai teman',
           'size' => 'xs',
         ),
         2 => 
         array (
           'type' => 'text',
-          'text' => 'Invite ke Group ya kak'.$getName,
+          'text' => 'Invite ke Group ya kak '.$getName,
           'size' => 'xs',
           'gravity' => 'top',
         ),
@@ -224,7 +223,6 @@ if($type == 'follow') {
           array (
             'type' => 'postback',
             'label' => 'Help',
-            'text' => 'Help',
             'data' => 'Help',
           ),
           'flex' => 2,
@@ -238,18 +236,204 @@ if($type == 'follow') {
   ),
 )
                 ));
-    
-    $responsess['replyToken'] = $replyToken;
-    $responsess['messages']['0']['type'] = "text";
-    $responsess['messages']['0']['text'] = "Halo ".$getName." invite ke group ya kak";
-    $results = json_encode($responsess);
-    $result_jsons = json_decode($results, TRUE);
     $client->replyMessage($pushy);
 }
 
 
 
 
+
+
+
+# PostBack Data Here
+
+if ($type == 'postback'){
+	if ($commandPostback == 'Help'){
+		$balas = array(
+			'replyToken' => $replyToken,
+				'messages' => array(
+					array (
+  'type' => 'flex',
+  'altText' => 'Help Message',
+  'contents' => 
+  array (
+    'type' => 'bubble',
+    'direction' => 'ltr',
+    'header' => 
+    array (
+      'type' => 'box',
+      'layout' => 'vertical',
+      'contents' => 
+      array (
+        0 => 
+        array (
+          'type' => 'text',
+          'text' => 'Command List',
+          'size' => 'lg',
+          'align' => 'center',
+          'weight' => 'bold',
+          'color' => '#178BDB',
+        ),
+        1 => 
+        array (
+          'type' => 'separator',
+          'color' => '#31B4D2',
+        ),
+      ),
+    ),
+    'body' => 
+    array (
+      'type' => 'box',
+      'layout' => 'vertical',
+      'contents' => 
+      array (
+        0 => 
+        array (
+          'type' => 'text',
+          'text' => 'Anime',
+          'flex' => 1,
+          'size' => 'lg',
+          'align' => 'center',
+          'weight' => 'bold',
+        ),
+        1 => 
+        array (
+          'type' => 'separator',
+        ),
+        2 => 
+        array (
+          'type' => 'text',
+          'text' => '> /anime-search [Judul Anime]',
+          'size' => 'sm',
+          'align' => 'start',
+          'action' => 
+          array (
+            'type' => 'message',
+            'label' => '/search one punch',
+            'text' => '/search one punch',
+          ),
+        ),
+        3 => 
+        array (
+          'type' => 'text',
+          'text' => '> /anime-stats [Judul Anime]',
+          'size' => 'sm',
+          'action' => 
+          array (
+            'type' => 'message',
+            'label' => '/anime-stats',
+            'text' => '/anime-stats',
+          ),
+        ),
+        4 => 
+        array (
+          'type' => 'text',
+          'text' => '> /anime-moreinfo [Judul Anime]',
+          'flex' => 1,
+          'size' => 'sm',
+        ),
+        5 => 
+        array (
+          'type' => 'text',
+          'text' => '> /anime-news',
+          'size' => 'sm',
+          'align' => 'start',
+          'gravity' => 'center',
+          'action' => 
+          array (
+            'type' => 'message',
+            'label' => '/news',
+            'text' => '/anime-news',
+          ),
+          'wrap' => true,
+        ),
+        6 => 
+        array (
+          'type' => 'text',
+          'text' => '> /anime-genre [Judul Anime]',
+          'flex' => 1,
+          'size' => 'sm',
+        ),
+        7 => 
+        array (
+          'type' => 'text',
+          'text' => 'Manga',
+          'size' => 'lg',
+          'align' => 'center',
+          'weight' => 'bold',
+        ),
+        8 => 
+        array (
+          'type' => 'separator',
+        ),
+        9 => 
+        array (
+          'type' => 'text',
+          'text' => '> /manga-search [Nama Manga]',
+          'flex' => 1,
+          'size' => 'sm',
+        ),
+        10 => 
+        array (
+          'type' => 'text',
+          'text' => '> /manga-karakter [Nama Manga]',
+          'size' => 'sm',
+        ),
+        11 => 
+        array (
+          'type' => 'text',
+          'text' => '> /manga-moreinfo [Nama Manga]',
+          'size' => 'sm',
+        ),
+        12 => 
+        array (
+          'type' => 'text',
+          'text' => '> /manga-news',
+          'flex' => 1,
+          'size' => 'sm',
+        ),
+        13 => 
+        array (
+          'type' => 'text',
+          'text' => 'More',
+          'flex' => 1,
+          'size' => 'lg',
+          'align' => 'center',
+          'weight' => 'bold',
+        ),
+        14 => 
+        array (
+          'type' => 'separator',
+        ),
+        15 => 
+        array (
+          'type' => 'text',
+          'text' => '> /schedule',
+          'flex' => 0,
+          'size' => 'sm',
+        ),
+        16 => 
+        array (
+          'type' => 'text',
+          'text' => '> /season [Musim]',
+          'size' => 'sm',
+          'weight' => 'regular',
+          'action' => 
+          array (
+            'type' => 'message',
+            'label' => '/season winter',
+            'text' => '/season winter',
+          ),
+          'wrap' => true,
+        ),
+      ),
+    ),
+  ),
+)
+				);
+		);
+	}
+}
 
 
 
