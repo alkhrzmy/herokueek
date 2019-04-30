@@ -248,7 +248,7 @@ if($type == 'follow') {
 # PostBack Data Here
 
 if ($type == 'postback'){
-	if ($commandPostback == 'Help'){
+	if ($postbackData == 'Help'){
 		$balas = array(
 			'replyToken' => $replyToken,
 				'messages' => array(
