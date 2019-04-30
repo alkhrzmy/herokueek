@@ -89,8 +89,8 @@ function schedule($keyword){
 	$response = Unirest\Request::get("$uri");
 	$json = json_decode($response->raw_body, true);
 	$parsed = array();
-	$parsed['data'] = $json['$keyword'];
-	$parsed['title'] = $json['$keyword'][0]['title'];
+	$parsed['data'] = $json[$keyword];
+	$parsed['title'] = $json[$keyword][0]['title'];
 	return $parsed;
 }
 
