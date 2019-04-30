@@ -58,6 +58,36 @@ if (count($pesan_datang) > 2) {
 $path = "https://alkhrzmy.online/remindme/";
 $IdAdmin = "U6492dbccec39e3db72af41aa3f0ebad5";
 
+
+#------------function API------------#
+function animesearch($keyword){
+	$uri = "https://api.jikan.moe/v3/search/anime?q=".$keyword."&limit=5";
+	$response = Unirest\Request::get("$uri");
+	$json = json_decode($response->raw_body, true);
+	
+	$parsed = array();
+	$parsed['url1'] = $json['results'][0]['url'];
+	$parsed['image1'] = $json['results'][0]['image_url'];
+	$parsed['title1'] = $json['results'][0]['title'];
+	$parsed['url2'] = $json['results'][1]['url'];
+	$parsed['image2'] = $json['results'][1]['image_url'];
+	$parsed['title2'] = $json['results'][1]['title'];
+	$parsed['url3'] = $json['results'][2]['url'];
+	$parsed['image3'] = $json['results'][2]['image_url'];
+	$parsed['title3'] = $json['results'][2]['title'];
+	$parsed['url4'] = $json['results'][3]['url'];
+	$parsed['image4'] = $json['results'][3]['image_url'];
+	$parsed['title4'] = $json['results'][3]['title'];
+	$parsed['url5'] = $json['results'][4]['url'];
+	$parsed['image5'] = $json['results'][4]['image_url'];
+	$parsed['title5'] = $json['results'][4]['title'];
+	return $parsed;
+}
+
+
+
+#------------END------------#
+
 if($type=='join'){
     $balas=array(
         'replyToken'=>$replyToken,
@@ -258,6 +288,99 @@ if ($message['type'] == 'text') {
 					'type'=>'text',
 					'text'=>'Hai'
 				),
+			),
+		);
+	}elseif($command == '/anime-search'){
+		$eok = animesearch($options);
+		$balas = array(
+			'replyToken' => $replyToken,
+			'messages' => array(
+			
+			array (
+  'type' => 'template',
+  'altText' => 'Anime Search',
+  'template' => 
+  array (
+    'type' => 'carousel',
+    'actions' => 
+    array (
+    ),
+    'columns' => 
+    array (
+      0 => 
+      array (
+        'thumbnailImageUrl' => $eok['image1'],
+        'text' => $eok['title1'],
+        'actions' => 
+        array (
+          0 => 
+          array (
+            'type' => 'uri',
+            'label' => 'See in MAL',
+            'uri' => $eok['url1'],
+          ),
+        ),
+      ),
+      1 => 
+      array (
+        'thumbnailImageUrl' => $eok['image2'],
+        'text' => $eok['title2'],
+        'actions' => 
+        array (
+          0 => 
+          array (
+            'type' => 'uri',
+            'label' => 'See in MAL',
+            'uri' => $eok['url2'],
+          ),
+        ),
+      ),
+      2 => 
+      array (
+        'thumbnailImageUrl' => $eok['image3'],
+        'text' => $eok['title3'],
+        'actions' => 
+        array (
+          0 => 
+          array (
+            'type' => 'uri',
+            'label' => 'See in MAL',
+            'uri' => $eok['url3'],
+          ),
+        ),
+      ),
+      3 => 
+      array (
+        'thumbnailImageUrl' => $eok['image4'],
+        'text' => $eok['title4'],
+        'actions' => 
+        array (
+          0 => 
+          array (
+            'type' => 'uri',
+            'label' => 'See in MAL',
+            'uri' => $eok['url4'],
+          ),
+        ),
+      ),
+      4 => 
+      array (
+        'thumbnailImageUrl' => $eok['image5'],
+        'text' => $eok['title5'],
+        'actions' => 
+        array (
+          0 => 
+          array (
+            'type' => 'uri',
+            'label' => 'See in MAL',
+            'uri' => $eok['url5'],
+          ),
+        ),
+      ),
+    ),
+  ),
+)
+			
 			),
 		);
 	}
