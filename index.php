@@ -239,7 +239,29 @@ if($type == 'follow') {
     $client->replyMessage($pushy);
 }
 
-
+if ($message['type'] == 'text') {
+	if ($command == 'test'){
+		$balas = array(
+			'replyToken' => $replyToken,
+			'messages' => array(
+				array(
+					'type'=>'text',
+					'text'=>'masuk'
+				),
+			),
+		);
+	}elseif($command == 'Halo'||$command == 'halo'||$command == 'Haloo'){
+		$balas = array(
+			'replyToken' => $replyToken,
+			'messages' => array(
+				array(
+					'type'=>'text',
+					'text'=>'Hai'
+				),
+			),
+		);
+	}
+}
 
 
 
