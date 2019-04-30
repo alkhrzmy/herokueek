@@ -64,7 +64,7 @@ if($type=='join'){
         'messages'=>array(
 			array (
   'type' => 'flex',
-  'altText' => 'Flex Message',
+  'altText' => 'Halo! Terima kasih sudah mengundang',
   'contents' => 
   array (
     'type' => 'bubble',
@@ -77,26 +77,12 @@ if($type=='join'){
       'size' => 'full',
       'aspectRatio' => '20:13',
       'aspectMode' => 'cover',
-      'action' => 
-      array (
-        'type' => 'postback',
-        'label' => 'eek',
-        'text' => 'eek',
-        'data' => 'eek',
-      ),
     ),
     'body' => 
     array (
       'type' => 'box',
       'layout' => 'vertical',
       'spacing' => 'md',
-      'action' => 
-      array (
-        'type' => 'postback',
-        'label' => 'eek',
-        'text' => 'eek',
-        'data' => 'eek',
-      ),
       'contents' => 
       array (
         0 => 
@@ -187,26 +173,12 @@ if($type == 'follow') {
       'size' => 'full',
       'aspectRatio' => '20:13',
       'aspectMode' => 'cover',
-      'action' => 
-      array (
-        'type' => 'postback',
-        'label' => 'eek',
-        'text' => 'eek',
-        'data' => 'eek',
-      ),
     ),
     'body' => 
     array (
       'type' => 'box',
       'layout' => 'vertical',
       'spacing' => 'md',
-      'action' => 
-      array (
-        'type' => 'postback',
-        'label' => 'eek',
-        'text' => 'eek',
-        'data' => 'eek',
-      ),
       'contents' => 
       array (
         0 => 
@@ -220,13 +192,13 @@ if($type == 'follow') {
         1 => 
         array (
           'type' => 'text',
-          'text' => 'Telah menambahkan Tanjirou sebagai teman',
+          'text' => 'Telah menambahkan sebagai teman',
           'size' => 'xs',
         ),
         2 => 
         array (
           'type' => 'text',
-          'text' => 'Invite ke Group ya:)',
+          'text' => 'Invite ke Group ya kak'.$getName,
           'size' => 'xs',
           'gravity' => 'top',
         ),
