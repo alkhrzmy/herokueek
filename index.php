@@ -84,6 +84,15 @@ function animesearch($keyword){
 	return $parsed;
 }
 
+function schedule($keyword){
+	$uri='https://api.jikan.moe/v3/schedule/'.$keyword;
+	$response = Unirest\Request::get("$uri");
+	$json = json_decode($response->raw_body, true);
+	$parsed = array();
+	$parsed['data'] = $json['$keyword'];
+	$parsed['title'] = $json['$keyword'][0]['title'];
+	return $parsed;
+}
 
 
 #------------END------------#
@@ -383,6 +392,111 @@ if ($message['type'] == 'text') {
 			
 			),
 		);
+	}elseif($command == '/schedule'){
+		$balas = array(
+			'replyToken' => $replyToken,
+			'messages' => array(
+				array (
+  'type' => 'template',
+  'altText' => 'Schedule Airing',
+  'template' => 
+  array (
+    'type' => 'carousel',
+    'actions' => 
+    array (
+    ),
+    'columns' => 
+    array (
+      0 => 
+      array (
+        'text' => 'Jadwal Airing',
+        'actions' => 
+        array (
+          0 => 
+          array (
+            'type' => 'message',
+            'label' => 'Minggu',
+            'text' => '/schedule-sunday',
+          ),
+          1 => 
+          array (
+            'type' => 'message',
+            'label' => 'Senin',
+            'text' => '/schedule-monday',
+          ),
+        ),
+      ),
+      1 => 
+      array (
+        'text' => 'Jadwal Airing',
+        'actions' => 
+        array (
+          0 => 
+          array (
+            'type' => 'message',
+            'label' => 'Selasa',
+            'text' => '/schedule-tuesday',
+          ),
+          1 => 
+          array (
+            'type' => 'message',
+            'label' => 'Rabu',
+            'text' => '/schedule-wednesday',
+          ),
+        ),
+      ),
+      2 => 
+      array (
+        'text' => 'Jadwal Airing',
+        'actions' => 
+        array (
+          0 => 
+          array (
+            'type' => 'message',
+            'label' => 'Kamis',
+            'text' => '/schedule-thursday',
+          ),
+          1 => 
+          array (
+            'type' => 'message',
+            'label' => 'Jum\'at',
+            'text' => '/schedule-friday',
+          ),
+        ),
+      ),
+      3 => 
+      array (
+        'text' => 'Jadwal Airing',
+        'actions' => 
+        array (
+          0 => 
+          array (
+            'type' => 'message',
+            'label' => 'Sabtu',
+            'text' => '/schedule-saturday',
+          ),
+          1 => 
+          array (
+            'type' => 'message',
+            'label' => 'Creator',
+            'text' => '/schedule-monday',
+          ),
+        ),
+      ),
+    ),
+  ),
+)
+			),
+		);
+	}elseif($command == '/schedule-monday'){
+		$res = schedule('monday');
+		$balas = array(
+			'replyToken' => $replyToken,
+			'messages' => array(
+				'type' => 'text',
+				'text' => $res['data']
+			),
+		);
 	}
 }
 
@@ -455,7 +569,7 @@ if ($type == 'postback'){
           array (
             'type' => 'message',
             'label' => '/search one punch',
-            'text' => '/search one punch',
+            'text' => '/anime-search one punch',
           ),
         ),
         3 => 
