@@ -79,9 +79,10 @@ if($type=='join'){
       'aspectMode' => 'cover',
       'action' => 
       array (
-        'type' => 'uri',
-        'label' => 'Action',
-        'uri' => 'https://linecorp.com',
+        'type' => 'postback',
+        'label' => 'eek',
+        'text' => 'eek',
+        'data' => 'eek',
       ),
     ),
     'body' => 
@@ -91,9 +92,10 @@ if($type=='join'){
       'spacing' => 'md',
       'action' => 
       array (
-        'type' => 'uri',
-        'label' => 'Action',
-        'uri' => 'https://linecorp.com',
+        'type' => 'postback',
+        'label' => 'eek',
+        'text' => 'eek',
+        'data' => 'eek',
       ),
       'contents' => 
       array (
@@ -182,15 +184,15 @@ if($type == 'follow') {
     array (
       'type' => 'image',
       'url' => 'https://imgbbb.com/images/2019/04/30/tanjirou_back2.png',
-      'flex' => 1,
       'size' => 'full',
       'aspectRatio' => '20:13',
       'aspectMode' => 'cover',
       'action' => 
       array (
-        'type' => 'uri',
-        'label' => 'Action',
-        'uri' => 'https://linecorp.com',
+        'type' => 'postback',
+        'label' => 'eek',
+        'text' => 'eek',
+        'data' => 'eek',
       ),
     ),
     'body' => 
@@ -200,41 +202,40 @@ if($type == 'follow') {
       'spacing' => 'md',
       'action' => 
       array (
-        'type' => 'uri',
-        'label' => 'Action',
-        'uri' => 'https://linecorp.com',
+        'type' => 'postback',
+        'label' => 'eek',
+        'text' => 'eek',
+        'data' => 'eek',
       ),
       'contents' => 
       array (
         0 => 
         array (
           'type' => 'text',
-          'text' => 'Tanjirou\'s Bot',
-          'margin' => 'xs',
+          'text' => 'Terima Kasih',
           'size' => 'xl',
           'align' => 'center',
-          'gravity' => 'top',
           'weight' => 'bold',
-          'action' => 
-          array (
-            'type' => 'uri',
-            'label' => 'None',
-            'uri' => 'line://ti/p/~alkhoarizmy',
-          ),
-          'wrap' => true,
         ),
         1 => 
         array (
           'type' => 'text',
-          'text' => 'Terima kasih sudah mengundang Tanjirou!',
-          'flex' => 1,
+          'text' => 'Telah menambahkan Tanjirou sebagai teman',
           'size' => 'xs',
         ),
         2 => 
         array (
           'type' => 'text',
-          'text' => 'Ketik Help atau klik tombol dibawah ini',
+          'text' => 'Invite ke Group ya:)',
           'size' => 'xs',
+          'gravity' => 'top',
+        ),
+        3 => 
+        array (
+          'type' => 'text',
+          'text' => 'Ketik help atau klik dibawah ini',
+          'size' => 'xs',
+          'gravity' => 'top',
         ),
       ),
     ),
@@ -254,8 +255,8 @@ if($type == 'follow') {
             'text' => 'Help',
             'data' => 'Help',
           ),
-          'flex' => 1,
-          'color' => '#2687E7',
+          'flex' => 2,
+          'color' => '#196BBB',
           'height' => 'sm',
           'style' => 'primary',
           'gravity' => 'top',
@@ -263,7 +264,7 @@ if($type == 'follow') {
       ),
     ),
   ),
-),
+)
                 ));
     
     $responsess['replyToken'] = $replyToken;
