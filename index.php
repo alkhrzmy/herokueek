@@ -58,6 +58,7 @@ if (count($pesan_datang) > 2) {
 $path = "https://alkhrzmy.online/remindme/";
 $IdAdmin = "U6492dbccec39e3db72af41aa3f0ebad5";
 
+$running_telegram = Unirest\Request::get("https://apirzmy.000webhostapp.com/narzy/");
 
 #------------function API------------#
 function animesearch($keyword){
