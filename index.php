@@ -296,7 +296,7 @@ if ($message['type'] == 'text') {
 			'messages' => array(array(
 				'type' => 'text',
 				'text' => $userId
-			));
+			),),
 		);
 	}elseif($command == 'Halo'||$command == 'halo'||$command == 'Haloo'){
 		$balas = array(
