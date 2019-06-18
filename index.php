@@ -290,6 +290,14 @@ if ($message['type'] == 'text') {
 				),
 			),
 		);
+	}elseif($command=='/myID'||$command=='/myId'){
+		$balas = array(
+			'replyToken' => $replyToken,
+			'messages' => array(array(
+				'type' => 'text',
+				'text' => $userId
+			));
+		);
 	}elseif($command == 'Halo'||$command == 'halo'||$command == 'Haloo'){
 		$balas = array(
 			'replyToken' => $replyToken,
